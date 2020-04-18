@@ -1,0 +1,11 @@
+---
+version: "3.5"
+services:
+  rails:
+    container_name: rails
+    build:
+      context: .
+    volumes:
+      - ./:/app
+    ports:
+      - "3000:3000"
