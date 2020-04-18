@@ -7,7 +7,7 @@ RUN apt update \
   && npm install n -g \
   && n stable \
   && apt purge -y nodejs npm \
-  && apt install -y yarn \
+  && /bin/bash -c "npm install -g yarn" \
   && gem install rails
 
 EXPOSE 3000
