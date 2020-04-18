@@ -10,6 +10,10 @@ RUN apt update \
   && /bin/bash -c "npm install -g yarn" \
   && gem install rails
 
-EXPOSE 3000
+WORKDIR /app
+COPY Gemfile* ./
+RUN bundle install
+COPY . .
 
+EXPOSE 3000
 CMD ["rails", "server", "-b", "0.0.0.0"]
